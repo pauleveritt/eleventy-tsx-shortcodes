@@ -1,0 +1,20 @@
+{
+  "name": "eleventy-tsx-shortcodes",
+  "version": "1.0.0",
+  "description": "TSX subcomponents don't have access to shortcodes.",
+  "type": "module",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "start": "@11ty/eleventy --serve --incremental"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0-alpha.13",
+    "preact": "^10.22.0",
+    "preact-render-to-string": "^6.5.5",
+    "prettier": "^3.2.5",
+    "tsx": "^4.10.2"
+  }
+}
