@@ -5,16 +5,17 @@ export type RenderData = {};
 
 type IndexProps = {
   children: ComponentChildren;
+  title: string;
 };
 
-export function BaseLayout(this: RenderData, { children }: IndexProps) {
+export function BaseLayout(this: RenderData, { title, children }: IndexProps) {
   return (
     <html>
       <head>
-        <title>Hello TSX</title>
+        <title>{title}</title>
       </head>
       <body>
-        <Heading />
+        <Heading title={title} />
         {children}
       </body>
     </html>

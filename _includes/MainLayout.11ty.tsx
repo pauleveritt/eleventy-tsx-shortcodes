@@ -1,8 +1,13 @@
 import { BaseLayout } from "./BaseLayout";
+import { JSX } from "preact";
 
-export function MainLayout() {
+export type MainLayoutProps = {
+  title: string;
+};
+
+export function MainLayout({ title }: MainLayoutProps): JSX.Element {
   return (
-    <BaseLayout>
+    <BaseLayout title={title}>
       <div>hello</div>
     </BaseLayout>
   );
