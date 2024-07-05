@@ -1,3 +1,6 @@
+import { useContext, useState } from "preact/compat";
+import { Theme } from "./BaseLayout";
+
 export type Context = {};
 
 export type ThisHeading = {
@@ -9,6 +12,11 @@ export type HeadingProps = {
 };
 
 export function Heading(this: ThisHeading, { title }: HeadingProps) {
-  // This actually retrieves a callable
-  return <h2>{title}</h2>;
+  const [theme, setTheme] = useState("dark");
+  setTheme("NOOOOO");
+  return (
+    <h2>
+      {title}: {theme}
+    </h2>
+  );
 }
