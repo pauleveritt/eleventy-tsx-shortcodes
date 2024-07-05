@@ -11,8 +11,11 @@ export default function (eleventyConfig) {
     compile: function () {
       return async function (data) {
         const content = await this.defaultRenderer(data);
+        const css = (content) =>
+          eleventyConfig.javascriptFunctions.css(content, null, data.page.url);
         const result = render(content, {
           data,
+          css,
           shortcodes: eleventyConfig.javascriptFunctions,
         });
         return `<!doctype html>\n${result}`;

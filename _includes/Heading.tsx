@@ -1,7 +1,12 @@
-import { useContext, useState } from "preact/compat";
-import { Theme } from "./BaseLayout";
-
-export type Context = {};
+export type Context = {
+  shortcodes: any;
+  css: any;
+  data: {
+    page: {
+      url: string;
+    };
+  };
+};
 
 export type ThisHeading = {
   context: Context;
@@ -12,11 +17,7 @@ export type HeadingProps = {
 };
 
 export function Heading(this: ThisHeading, { title }: HeadingProps) {
-  const [theme, setTheme] = useState("dark");
-  setTheme("NOOOOO");
-  return (
-    <h2>
-      {title}: {theme}
-    </h2>
-  );
+  const { css } = this.context;
+  css("h2.xyz {font-weight: bold}");
+  return <h2 class="xyz">{title}</h2>;
 }

@@ -1,19 +1,22 @@
-import { BaseLayout, Theme } from "./BaseLayout";
-import { JSX } from "preact";
-import { useState } from "preact/compat";
+import { Heading } from "./Heading";
 
 export type MainLayoutProps = {
   title: string;
 };
 
-export function MainLayout({ title }: MainLayoutProps): JSX.Element {
-  const [theme, setTheme] = useState("dark");
+export function MainLayout({ title }: MainLayoutProps) {
+  const thisCss = this.getBundle("css");
   return (
-    <Theme.Provider value={theme}>
-      <BaseLayout title={title}>
+    <html>
+      <head>
+        <title>{title}</title>
+      </head>
+      <body>
+        <Heading title={title} />
         <div>hello</div>
-      </BaseLayout>
-    </Theme.Provider>
+        <style>{thisCss}</style>
+      </body>
+    </html>
   );
 }
 

@@ -1,6 +1,5 @@
 import { Heading } from "./Heading";
-import { ComponentChildren, createContext } from "preact";
-import { useContext, useState } from "preact/compat";
+import { ComponentChildren } from "preact";
 
 export type RenderData = {};
 
@@ -9,10 +8,7 @@ type IndexProps = {
   title: string;
 };
 
-export const Theme = createContext("light");
-
 export function BaseLayout(this: RenderData, { title, children }: IndexProps) {
-  const [theme, setTheme] = useState("dark");
   return (
     <html>
       <head>
@@ -21,7 +17,6 @@ export function BaseLayout(this: RenderData, { title, children }: IndexProps) {
       <body>
         <Heading title={title} />
         {children}
-        <p>Theme: {theme}</p>
       </body>
     </html>
   );
